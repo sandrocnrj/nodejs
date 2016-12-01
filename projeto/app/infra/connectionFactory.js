@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-function createDBConnection() {
+var connetMySQL = function() {
 	return mysql.createConnection({
 			host : 'localhost',
 			user : 'root',
@@ -11,5 +11,5 @@ function createDBConnection() {
 
 //wrapper
 module.exports = function() {
-	return createDBConnection;
+	return connetMySQL;
 }
