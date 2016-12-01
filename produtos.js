@@ -1,11 +1,13 @@
 var http = require('http');
+var porta = 3000;
+var ip = "localhost";
 
-http.createServer(function(req, res){
-	if(req.url == "/produtos"){
-		res.end("<html><body>listando os produtos da loja</body>");
-	} else {
-		res.end("<html><body>home  da casa do codigo</body></html>");
-	}
-}).listen(3000,"localhost");
+var server = http.createServer(function(req, res) {
+    console.log("Recebendo request");
+    res.writeHead(    200, {'Content-Type': 'text/html'});
+    res.end('<html><body>Request recebido!</body></html>');
+});
 
-console.log("listagem de produtos");
+server.listen(porta, ip);
+
+console.log("Server running at http://" + ip + ":" + porta + "/");
