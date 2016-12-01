@@ -1,0 +1,14 @@
+{
+  "name": "projetonodejs",
+  "version": "1.0.0",
+  "description": "Projeto de estudo em nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('teste');"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
