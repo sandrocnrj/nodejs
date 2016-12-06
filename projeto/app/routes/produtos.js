@@ -35,7 +35,7 @@ module.exports = function(app){
     app.get('/produtos', listaProdutos);
 
     app.get('/produtos/form', function(req, res){
-    	res.render('produtos/form',{errosValidacao:{}});
+    	res.render('produtos/form',{errosValidacao:{}, produto:{}});
 
     });
 
@@ -51,7 +51,15 @@ module.exports = function(app){
         var erros = req.validationErrors();
 
         if(erros){
-            res.render('produtos/form',{errosValidacao:erros});
+            res.format({
+                html: function(){
+                    res.status(400).render('produtos/form',{errosValidacao:erros, produto:produto});
+                },
+                json: function(){
+                    res.status(400).json(erros);
+                }
+            });       
+
             return;
         }
 
